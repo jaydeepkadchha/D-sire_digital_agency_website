@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D'sire Digital Agency</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 56px;
+      background-color: #f8f9fa;
+	  margin-bottom: 100px;
+    }
+    .masthead {
+      height: 100vh;
+      min-height: 500px;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKKpyvG1zKfyYnHmlVtrlBFs0qU_UfwrgbNw&s');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+    }
+    .masthead h1 {
+      font-size: 3rem;
+      margin-bottom: 0;
+    }
+    .page-section {
+      padding: 5rem 0;
+    }
+    .creator-info {
+      background-color: #6c757d;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .service-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+    .service-details {
+      display: none;
+      margin-top: 1rem;
+    }
+    .bg-light {
+      background-color: #f8f9fa !important;
+    }
+    .btn-primary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-primary:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+    .btn-dark {
+      background-color: #343a40;
+      border-color: #343a40;
+    }
+    .btn-dark:hover {
+      background-color: #23272b;
+      border-color: #1d2124;
+    }
+    .text-muted {
+      color: #6c757d !important;
+    }
+    .divider {
+      border-bottom: 1px solid #6c757d;
+      width: 60%;
+      margin: 2rem auto;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+    }
+   
+	.pricing-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.pricing-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pricing-card {
+    background-color: #e3e3e3;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: left;
+}
+
+.pricing-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.price span {
+    font-size: 0.5em;
+    vertical-align: top;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.pricing-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.pricing-card ul li:last-child {
+    border-bottom: none;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.contact-section {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #fff;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.contact-section .btn {
+    margin-top: 20px;
+}
+.footer {
+  position: fixed; /* Keep the footer fixed at the bottom */
+  width: 100%;
+  bottom: 0;
+  background-color: #343a40; /* Adjust background color if needed */
+  color: #ffffff; /* Adjust text color if needed */
+  padding: 10px ;
+  text-align: center;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">D'zire Digital Agency</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" onclick="showSection('home')">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" onclick="showSection('about')">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services" onclick="showSection('services')">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing" onclick="showSection('pricing')">Pricing</a>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" onclick="showPage('contact')">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#register" data-toggle="modal" data-target="#registerModal">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+
+  <!-- Main Sections -->
+  <div id="home">
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+          <div class="col-lg-10 align-self-end">
+            <h1 class="text-uppercase font-weight-bold"><marquee behaviour="" direction="">Welcome to D'zire Digital Agency</marquee></h1>
+            <hr class="divider my-4">
+          </div>
+          <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 font-weight-light mb-5">We help you grow your business digitally.</p>
+            <a class="btn btn-primary btn-xl" href="#about" onclick="showSection('about')">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </header>
+<!-- Creator Info Section -->
+    <section id="creator" class="creator-info">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2>Developer Information</h2>
+            <hr class="divider my-4">
+            <p class="mb-0">Developed by: Jaydeep Kadchha@miwt</p>
+			<p class="mb-0">Computer Engineer Student</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="about" class="">
+   
+    <!-- About Section -->
+    <section class="page-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="text-muted">About Us</h2>
+            <hr class="divider my-4">
+            <p class="text-muted mb-4">D'zire Digital Agency is a leading digital marketing agency that helps businesses succeed in the digital world. Our mission is to empower businesses to achieve their online potential through innovative digital solutions. With a team of dedicated professionals, we provide customized services tailored to meet the unique needs of each client.</p>
+            <h3 class="text-muted">Our Mission</h3>
+            <p class="text-muted mb-4">Our mission is to empower businesses to achieve their online potential through innovative digital solutions. We strive to deliver outstanding results for our clients by leveraging our expertise and creativity.</p>
+            <h3 class="text-muted">Our Vision</h3>
+            <p class="text-muted mb-4">Our vision is to be the most trusted digital marketing agency, known for our commitment to excellence and our ability to drive success for our clients. We aim to build long-term relationships based on trust, transparency, and mutual growth.</p>
+            <h3 class="text-muted">Why Choose Us</h3>
+            <p class="text-muted mb-4">At D'zire Digital Agency, we understand that every business is unique. We take the time to understand your goals, challenges, and target audience to create a personalized strategy that delivers results. Our team stays up-to-date with the latest trends and technologies to ensure you stay ahead of the competition.</p>
+            <ul class="text-muted mb-4">
+              <li>Customized digital marketing strategies</li>
+              <li>Experienced and dedicated team</li>
+              <li>Proven track record of success</li>
+              <li>Transparent and collaborative approach</li>
+              <li>Comprehensive range of services</li>
+            </ul>
+            <a class="btn btn-primary btn-xl" href="#services" onclick="showSection('services')">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="services" class="">
+    <!-- Services Section -->
+    <section class="page-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="text-muted">Our Services</h2>
+            <hr class="divider my-4">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 text-center">
+		 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiEjBilP-PBEbL7NAsVh5jU2PEYPgaGhh8-g&s" class="service-img" alt="Web Development" onclick="toggleServiceDetails('service1')">
+			                           
+            <h3 class="h4 mb-2">Web Development</h3>
+            <p class="text-muted">Creating stunning and more responsive websites etc.</p>
+            <div id="service1" class="service-details">
+              <p>Our web development team creates stunning, responsive, and user-friendly websites that drive engagement and conversions.<a href="https://en.wikipedia.org/wiki/Web_development" target="_blank">Learn more</a></p>
+              
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 text-center">
+		  
+            <img src="https://brandlume.com/wp-content/uploads/2019/10/960X540.png" class="service-img" alt="SEO" onclick="toggleServiceDetails('service2')">
+			
+            <h3 class="h4 mb-2">SEO</h3>
+            <p class="text-muted">Improving your website's visibility on search engines.</p>
+            <div id="service2" class="service-details">
+              <p>Our SEO experts use proven strategies to improve your website's visibility and drive organic traffic.<a href="https://en.wikipedia.org/wiki/Search_engine_optimization" target="_blank">Learn more</a></p>
+              
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 text-center">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKKpyvG1zKfyYnHmlVtrlBFs0qU_UfwrgbNw&s" class="service-img" alt="Social Media Marketing" onclick="toggleServiceDetails('service3')">
+
+            <h3 class="h4 mb-2">Social Media Marketing</h3>
+            <p class="text-muted">Engaging your audience on social media platforms.</p>
+            <div id="service3" class="service-details">
+              <p>We help you connect with your audience and build your brand through effective social media marketing strategies.<a href="https://en.wikipedia.org/wiki/Digital_marketing" target="_blank">Learn more</a></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+   <!-- pricing Section -->
+ 
+  <div id="pricing" class="">
+   <section class="pricing-section">
+        <h2 class="pricing-title">Pricing Plans</h2>
+        <p class="pricing-subtitle">Choose the Perfect Plan for Your Business</p>
+        
+        <div class="pricing-cards">
+            <!-- Starter Plan -->
+            <div class="pricing-card">
+                <h3>Starter Plan</h3>
+                <p class="price">499<span>/month</span></p>
+                <ul>
+                    <li>Up to 10 pages</li>
+                    <li>Custom Design</li>
+                    <li>Basic SEO Optimization</li>
+                    <li>Mobile Responsive Design</li>
+                    <li>Monthly Analytics Report</li>
+                    <li>Basic Support (Email)</li>
+                </ul>
+                
+            </div>
+            
+            <!-- Growth Plan -->
+            <div class="pricing-card">
+                <h3>Growth Plan</h3>
+                <p class="price">999<span>/month</span></p>
+                <ul>
+                    <li>Everything in the Starter Plan</li>
+                    <li>Up to 25 pages</li>
+                    <li>Advanced SEO Optimization</li>
+                    <li>Social Media Integration</li>
+                    <li>Monthly Performance Review</li>
+                    <li>Priority Support (Email & Phone)</li>
+                </ul>
+               
+            </div>
+            
+            <!-- Professional Plan -->
+            <div class="pricing-card">
+                <h3>Professional Plan</h3>
+                <p class="price">1999<span>/month</span></p>
+                <ul>
+                    <li>Everything in the Growth Plan</li>
+                    <li>Unlimited Pages</li>
+                    <li>E-commerce Functionality</li>
+                    <li>Custom CRM Integration</li>
+                    <li>Bi-weekly Performance Review</li>
+                    <li>Dedicated Account Manager</li>
+                   
+                </ul>
+              
+            </div>
+            
+          
+
+    <section class="contact-section">
+        <p>Need Help Choosing a Plan?</p>
+        <p>Our team is here to assist you in selecting the right plan for your business needs. Reach out to us for a free consultation and we'll help you make the best choice.</p>
+        <p><strong>Contact Information:</strong></p>
+        <p>Email: <a href="mailto:d'sireagency@gmail.com">d'sireagency@gmail.com</a></p>
+        <p>Phone: <a href="tel:+91 9912397245">+91 9912397245</a></p>
+        
+    </section>
+<!-- Contact Page Content -->
+
+<div id="contact" class="page">
+  <div class="container page-content">
+    <h2>Contact</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Get in touch with us by filling out the form below:</p>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3708.503305319805!2d69.65113697389639!3d21.644270166356566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395634c4e4d01da5%3A0xd7c395f74e89053d!2sGovt.%20Polytechnic%20Porbandar%2C%20Dut%20Sai%20Nagar%2C%20Porbandar%2C%20Gujarat%20360578!5e0!3m2!1sen!2sin!4v1720365686003!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; D'zire Digital Agency. All rights reserved.</p>
+  </div>
+</footer>
+ 
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm" onsubmit="return validateRegisterForm()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" onsubmit="return validateLoginForm()">
+          <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+            <div class="invalid-feedback">
+              Please enter your password.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+      // Show modal on page load
+      $('#userPrompt').modal('show');
+
+      // Handle form submission
+      $('#userForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var userName = $('#userName').val();
+        var userEmail = $('#userEmail').val();
+
+        // You can perform further actions with the name and email
+        console.log('Name:', "");
+        console.log('Email:', "");
+
+        // Close modal after submission
+        $('#userPrompt').modal('hide');
+      });
+    });
+	</script>
+	<script>
+  function validateLoginForm() {
+    var email = document.getElementById('loginEmail');
+    var password = document.getElementById('loginPassword');
+    var valid = true;
+
+    if (!email.value) {
+      email.classList.add('is-invalid');
+      valid = false;
+    } else {
+      email.classList.remove('is-invalid');
+    }
+
+    if (!password.value) {
+      password.classList.add('is-invalid');
+      valid = false;
+    } else {
+      password.classList.remove('is-invalid');
+    }
+
+    return valid;
+  }
+
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    if (!validateLoginForm()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+</script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function showSection(section) {
+      const sections = ['home', 'about', 'services', 'pricing', 'contact'];
+      sections.forEach(sec => {
+        document.getElementById(sec).classList.add('d-none');
+      });
+      document.getElementById(section).classList.remove('d-none');
+    }
+
+    function toggleServiceDetails(service) {
+      const serviceDetails = document.getElementById(service);
+      if (serviceDetails.style.display === "none" || serviceDetails.style.display === "") {
+        serviceDetails.style.display = "block";
+      } else {
+        serviceDetails.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
